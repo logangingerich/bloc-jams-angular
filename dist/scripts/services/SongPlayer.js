@@ -100,6 +100,7 @@
             currentBuzzObject.pause();
             song.playing = false;
         };
+        
 /**
  * @method previous
  * @desc uses the currentSongIndex to move to the previous song
@@ -146,6 +147,12 @@
                 currentBuzzObject.setVolume(volume);
             }
             SongPlayer.volume = volume;
+        };
+        
+        SongPlayer.mute = function() {
+            if(currentBuzzObject) {
+                currentBuzzObject.toggleMute()
+            } 
         };
         
     return SongPlayer;
