@@ -72,6 +72,8 @@
 * @type {Number}
 */
         SongPlayer.currentTime = null;
+        
+        SongPlayer.volume = 90;
 /**
  * @method play
  * @desc If the current song is not the song that is selected, setSong and playSong are called on it. If the current song IS the song selected and if the currentBuzzObject is currently paused, the currentBuzzObject will then be played 
@@ -128,10 +130,7 @@
                 playSong(song);
             }
             };
-        return SongPlayer;
-        };
-
-/**
+        /**
 * @function setCurrentTime
 * @desc Set current time (in seconds) of currently playing song
 * @param {Number} time
@@ -141,7 +140,17 @@
             currentBuzzObject.setTime(time);
             }
         };
-    
+            
+        SongPlayer.setVolume = function(volume) {
+            if (currentBuzzObject) {
+                currentBuzzObject.setVolume(volume);
+            }
+            SongPlayer.volume = volume;
+        };
+        
+    return SongPlayer;
+        
+    };
     angular
         .module('blocJams')
         .factory('SongPlayer', ['$rootScope', 'Fixtures', SongPlayer]);
