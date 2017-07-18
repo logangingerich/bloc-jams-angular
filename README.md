@@ -1,3 +1,3 @@
-## Bloc Jams Angular
+## Classic Jams
 
-A reworking of the original Bloc Jams app using the AngularJS framework.
+An AngularJS web application that functions as a small-scale Spotify.
